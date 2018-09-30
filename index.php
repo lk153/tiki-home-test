@@ -32,12 +32,12 @@ $cart = $user->initCart();
 printf($createdCartMsg);
 
 //Create shopping cart price rule
-$discountRule = new ShoppingCartPriceRule(UserGroup::GOLD, new DateTime('2018-08-31'), new DateTime('2018-09-31'), 50, 'Black', 1500);
+$discountRule = new ShoppingCartPriceRule(UserGroup::GOLD, new \DateTime('2018-08-30'), new \DateTime('2018-10-30'), 50, 'Black', 1500);
 printf($createdDiscountRule);
 
 //User buy some products
 $cartItem1 = new CartItem($iphoneSilver, 2);
-$cartItem2 = new CartItem($iphoneBlack, 2);
+$cartItem2 = new CartItem($iphoneBlack, 1);
 $cart->addCartItem($cartItem1)
     ->addCartItem($cartItem2);
 

@@ -62,6 +62,7 @@ Notes:
 # Note of Assumption
 
 * Product Model have sku property for identification purpose and cart item use it for manage added product.
+* Per cart item manage only one product with added quantity
 * Per user use only one shopping cart.
 * Shopping cart manage added product through cart item for below purpose:
     * Make cart manage and calculate cart total easier.
