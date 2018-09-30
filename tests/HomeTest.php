@@ -1,12 +1,13 @@
 <?php
 namespace Tests;
 
-use App\Model\ShoppingCart;
 use PHPUnit\Framework\TestCase;
+
 use App\Model\User;
 use App\Model\UserGroup;
 use App\Model\Product;
 use App\Model\CartItem;
+use App\Model\ShoppingCart;
 use App\Model\ShoppingCartPriceRule;
 
 class HomeTest extends TestCase
