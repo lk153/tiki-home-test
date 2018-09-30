@@ -13,7 +13,7 @@ class CartItem
      * @param Product $product
      * @param int $qty
      */
-    function __construct(Product $product, $qty)
+    public function __construct(Product $product, $qty)
     {
         $this->product = $product;
         $this->qty = $qty;

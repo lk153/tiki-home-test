@@ -16,7 +16,7 @@ class User {
      * @param string $email
      * @param integer $group
      */
-    function __construct($name, $email, $group)
+    public function __construct($name, $email, $group)
     {
         $this->name = $name;
         $this->email = $email;
@@ -84,7 +84,7 @@ class User {
      * Initialize shopping cart
      * @return ShoppingCart
      */
-    function initCart() : ShoppingCart
+    public function initCart() : ShoppingCart
     {
         $this->shoppingCart = new ShoppingCart($this);
 

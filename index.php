@@ -45,7 +45,7 @@ printf($buyMsg, $cartItem1->getQty(), $cartItem1->getProduct()->getName(), $cart
 printf($buyMsg, $cartItem2->getQty(), $cartItem2->getProduct()->getName(), $cartItem2->getProduct()->getColor());
 
 //Get Total Price
-printf("Total Price before discount: %d <br>", $cart->getTotalPrice());
+printf("Total Price before discount: %d <br>", $cart->calculateTotalPrice());
 
 //Get Total Price after discount
 printf("Total Price after discount: %d <br>", $cart->getGrandTotal());

@@ -33,7 +33,7 @@ class HomeTest extends TestCase
 
     public function testTotalPriceBeforeDiscount()
     {
-        $actual = $this->cart->getTotalPrice();
+        $actual = $this->cart->calculateTotalPrice();
         $expected = 2897;
         $this->assertEquals($expected, $actual);
     }

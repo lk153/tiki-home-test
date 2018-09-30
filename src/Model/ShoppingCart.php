@@ -13,7 +13,7 @@ class ShoppingCart
      *
      * @param User $user
      */
-    function __construct(User $user)
+    public function __construct(User $user)
     {
         $this->user = $user;
         $this->cartItems = [];
@@ -72,7 +72,7 @@ class ShoppingCart
      *
      * @return float
      */
-    public function getTotalPrice() : float
+    public function calculateTotalPrice() : float
     {
         $totalPrice = 0.0;
         foreach ($this->cartItems as $cartItem) {
@@ -90,10 +90,10 @@ class ShoppingCart
      */
     public function getGrandTotal() : float
     {
-        $this->grandTotal = $this->getTotalPrice();
+        $this->grandTotal = $this->calculateTotalPrice();
         foreach (ShoppingCartPriceRule::getDiscountRules() as $discountRule)
         {
-            $this->applyDiscount($discountRule);
+            $this->applyRule($discountRule);
         }
 
         return $this->grandTotal;
@@ -103,7 +103,7 @@ class ShoppingCart
      * @param float $grandTotal
      * @return ShoppingCart
      */
-    private function setGrandTotal(float $grandTotal) : ShoppingCart
+    public function setGrandTotal(float $grandTotal) : ShoppingCart
     {
         $this->grandTotal = $grandTotal;
 
@@ -116,10 +116,10 @@ class ShoppingCart
      * @param ShoppingCartPriceRule $discountRule
      * @return ShoppingCart
      */
-    public function applyDiscount(ShoppingCartPriceRule $discountRule)
+    public function applyRule(ShoppingCartPriceRule $discountRule)
     {
         $isValid = $discountRule->validateRule($this);
-        $grandTotal = $isValid ? $this->getTotalPrice() - $discountRule->getDiscount() : $this->getTotalPrice();
+        $grandTotal = $isValid ? $this->calculateTotalPrice() - $discountRule->getDiscount() : $this->calculateTotalPrice();
         $this->setGrandTotal($grandTotal);
 
         return $this;

@@ -21,7 +21,7 @@ class ShoppingCartPriceRule
      * @param string $color
      * @param float $subTotal
      */
-    function __construct(int $userGroup, $fromDate, $toDate, $discount, $color = '', $subTotal = 0.0)
+    public function __construct(int $userGroup, $fromDate, $toDate, $discount, $color = '', $subTotal = 0.0)
     {
         $this->userGroup = $userGroup;
         $this->fromDate = $fromDate;
